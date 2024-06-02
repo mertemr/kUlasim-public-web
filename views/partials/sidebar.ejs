@@ -1,0 +1,70 @@
+<link rel="stylesheet" href="/css/sidebar.css" />
+
+<div class="sidebar">
+    <div class="sidebar-header bg-primary text-white text-center">
+        <img src="/images/logo.webp" alt="logo" style="width: 32px" />
+        <span class="title">kUlaşım Web</span>
+    </div>
+    <a href="/"
+        ><i class="fa-solid fa-home"></i>
+        <span class="sidebar-text">Ana Sayfa</span></a
+    >
+    <a href="/search"
+        ><i class="fa-solid fa-magnifying-glass"></i>
+        <span class="sidebar-text">Genel Arama</span></a
+    >
+    <a href="/busses"
+        ><i class="fa-solid fa-bus"></i>
+        <span class="sidebar-text">Otobüs Durakları</span></a
+    >
+    <a href="/tramstops"
+        ><i class="fa-solid fa-train-tram"></i>
+        <span class="sidebar-text">Tramvay Durakları</span></a
+    >
+    <a href="/buslines"
+        ><i class="fa-solid fa-map-location"></i>
+        <span class="sidebar-text">Otobüs Hatları</span></a
+    >
+    <a href="/tramlines"
+        ><i class="fa-solid fa-train-tram"></i>
+        <span class="sidebar-text">Tramvay Hatları</span></a
+    >
+    <a class="sidebar-bottom" href="/saved"
+        ><i class="fa-solid fa-bookmark"></i>
+        <span class="sidebar-text">Kaydedilenler</span></a
+    >
+    <button class="sidebar-collapse-button" onclick="toggleSidebar()">
+        <i class="fa-solid fa-bars"></i>
+    </button>
+</div>
+
+<script type="text/javascript">
+    const currentLocation = "/" + window.location.pathname.split("/")[1] || "/";
+    let menuItem = document.querySelectorAll(".sidebar a");
+
+    menuItem.forEach((item) => {
+        if (item.getAttribute("href") === currentLocation) {
+            item.classList.add("active");
+        }
+    });
+
+    if (localStorage.getItem("sidebarState") === null) {
+        localStorage.setItem("sidebarState", "open");
+    }
+
+    const sidebarState = localStorage.getItem("sidebarState");
+    const sidebar = document.querySelector("div.sidebar");
+
+    if (sidebarState === "collapsed") {
+        sidebar.classList.add("collapsed");
+    }
+
+    function toggleSidebar() {
+        sidebar.classList.toggle("collapsed");
+
+        const sidebarState = sidebar.classList.contains("collapsed")
+            ? "collapsed"
+            : "open";
+        localStorage.setItem("sidebarState", sidebarState);
+    }
+</script>
