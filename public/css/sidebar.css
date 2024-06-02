@@ -1,0 +1,118 @@
+.sidebar {
+  margin: 0;
+  padding: 0;
+  width: var(--sidebar-width);
+  background-color: #24292e;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+}
+
+.sidebar.collapsed {
+  width: 60px;
+}
+
+.sidebar.collapsed span.sidebar-text {
+  display: none;
+}
+
+.sidebar.collapsed span.title {
+  display: none;
+}
+
+.sidebar-header {
+  padding: 20px 15px;
+}
+
+.sidebar a {
+  display: block;
+  color: white;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+.sidebar a.active {
+  background-color: var(--primary-color);
+  color: white;
+  text-align: center;
+}
+
+.sidebar a:hover:not(.active) {
+  background-color: #555;
+  color: white;
+}
+
+.sidebar-bottom {
+  position: absolute;
+  bottom: 1rem;
+  width: 100%;
+}
+
+.sidebar-collapse-button {
+  display: none;
+}
+
+@media screen and (max-width: 900px) {
+  footer {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+    top: 0; /* Add this line to reset the top position */
+    transition: top 0.3s ease; /* Add transition for smooth animation */
+  }
+
+  .sidebar.collapsed {
+    top: -100%; /* Move the sidebar off the screen */
+  }
+
+  .sidebar a {
+    float: left;
+    text-align: center;
+    float: none;
+  }
+
+  div.content {
+    margin-left: 0;
+    display: block;
+  }
+
+  a.sidebar-bottom {
+    position: relative;
+    bottom: 0;
+  }
+
+  .sidebar.collapsed {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .sidebar.collapsed a {
+    display: none;
+  }
+  
+  .sidebar.collapsed span.title {
+    display: inline;
+  }
+
+  .sidebar-collapse-button {
+    display: block;
+    position: absolute;
+    top: 20px;
+    right: 16px;
+    width: 32px;
+    height: 32px;
+    color: white;
+    background-color: none;
+    text-align: center;
+    line-height: 32px;
+    cursor: pointer;
+    border: 1px solid white;
+    border-radius: 8px;
+  }
+}

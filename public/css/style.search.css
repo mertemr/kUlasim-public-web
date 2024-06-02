@@ -1,0 +1,72 @@
+#searchType {
+  width: 25%;
+  margin-right: 8px;
+  margin-left: 8px;
+}
+
+#searchResults {
+  margin-top: 8px;
+  margin-bottom: 3rem;
+}
+
+#searchResults .result {
+  padding: 8px;
+  border-bottom: 1px solid var(--secondary-color);
+  font-size: 1.2rem;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+}
+
+#searchResults .table-header {
+  padding: 8px;
+  border-bottom: 1px solid var(--secondary-color);
+  font-size: 1.2rem;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+}
+
+#searchResults .result:hover {
+  border-left: 6px solid var(--primary-color);
+  background-image: linear-gradient(
+    90deg,
+    var(--primary-color) 0%,
+    var(--primary-color) 100%
+  );
+}
+
+#searchResults .table-header:hover {
+  background-image: none;
+  border-left: none;
+}
+
+.icon {
+  width: 20%;
+}
+
+.code {
+  padding-left: 1rem;
+  padding-right: 3rem;
+  width: 8%;
+  border-left: 1px solid var(--secondary-color);
+  border-right: 1px solid var(--secondary-color);
+}
+
+.name {
+  padding-left: 1rem;
+  width: 100%;
+  text-align: center;
+}
+
+.table-header {
+  font-weight: bold;
+  font-size: 1.2rem;
+  padding: 8px;
+  border-bottom: 1px solid var(--secondary-color);
+}
+
+.bookmark:hover {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+}

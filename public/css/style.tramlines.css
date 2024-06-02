@@ -1,0 +1,32 @@
+body {
+    overflow: hidden;
+}
+
+div.content {
+    margin-left: 200px;
+    padding: 0px;
+}
+
+#map {
+    height: 90vh;
+    margin: 0 auto;
+    width: 100%;
+}
+
+#searchContainer {
+    padding: 0 10rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+#tramIDOutput {
+    width: 54px;
+}
+
+#direction {
+    width: 40%;
+}
+
+#lineDirection {
+    width: 70%;
+}

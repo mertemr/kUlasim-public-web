@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="tr" data-bs-theme="dark">
+    <head>
+        <%- include('partials/head') %>
+        <link rel="stylesheet" href="/css/style.saved.css" />
+    </head>
+    <body>
+        <%- include('partials/sidebar') %>
+        <div class="content">
+            <div class="container bookmarks"></div>
+        </div>
+
+        <%- include('partials/scripts') %>
+        <script type="text/javascript">
+            const bookmarks = JSON.parse(localStorage.getItem("bookmarks"));
+            const bookmarksContainer = document.querySelector(".bookmarks");
+
+            function removeBookmark(item) {
+                let bookmarks = JSON.parse(localStorage.getItem("bookmarks"));
+                delete bookmarks[item];
+                localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
+                $(`#${item}`).remove();
+            }
+
+            const types = {
+                otobus: "fas fa-bus",
+                tramvay: "fas fa-train",
+                otobus_durak: "fas fa-location-dot",
+                tramvay_durak: "fas fa-car-tunnel",
+            };
+
+            for (const bookmark in bookmarks) {
+                const bookmarkElement = $(`<div id="${bookmark}"></div>`)[0];
+
+                let parts = bookmark.split("_");
+                let item_type, item_id;
+
+                if (parts.length === 2) {
+                    [item_type, item_id] = parts;
+                } else {
+                    item_type = parts.slice(0, -1).join("_");
+                    item_id = parts[parts.length - 1];
+                }
+
+                bookmarkElement.classList.add("card", "mb-3");
+                bookmarkElement.innerHTML = `
+                    <div class="card">
+                        <div class="card-body">
+                            <i class="${types[item_type]} fa-2x"></i>
+                            <h5 class="card-title">${item_id}</h5>
+                        </div>
+                        <div class="card-footer">
+                            <a href="/${item_type}/${item_id}" class="btn btn-primary">Detaylar</a>
+                            <button onclick="removeBookmark('${bookmark}')" class="btn btn-danger">
+                                Sil
+                            </button>
+                        </div>
+                    </div>
+                `;
+                bookmarksContainer.appendChild(bookmarkElement);
+            }
+        </script>
+    </body>
+</html>

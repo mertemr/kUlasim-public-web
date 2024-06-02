@@ -1,0 +1,29 @@
+:root {
+  --primary-color: #007bff;
+  --secondary-color: #6c757d;
+  --sidebar-width: 200px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+}
+
+div.content {
+  margin-left: 200px;
+  padding: 1px 16px;
+  padding-top: 1rem;
+}
+
+.footer {
+  margin-left: var(--sidebar-width);
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  padding: 1rem;
+  text-align: right;
+}
