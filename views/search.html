@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="tr" data-bs-theme="dark">
+    <head>
+        <%- include('partials/head') %>
+        <link rel="stylesheet" href="/css/loader.css" />
+        <link rel="stylesheet" href="/css/style.search.css" />
+    </head>
+    <body>
+        <%- include('partials/sidebar') %>
+        <div class="content">
+            <div class="container mt-4 d-flex justify-content-center">
+                <input
+                    class="form-control form-control-lg"
+                    type="text"
+                    placeholder="Arama"
+                    id="search"
+                    autofocus
+                />
+                <select class="form-select form-select-lg" id="searchType">
+                    <option selected value="all">Tümü</option>
+                    <option value="otobus">Otobüs Hatları</option>
+                    <option value="otobus_durak">Otobüs Durakları</option>
+                    <option value="tramvay_durak">Tramvay Durakları</option>
+                    <option value="tramvay">Tramvay Hatları</option>
+                </select>
+                <button class="btn btn-primary" id="searchButton" disabled>
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+            <div class="container mt-4">
+                <div class="row" id="searchResults"></div>
+            </div>
+        </div>
+        <%- include('partials/scripts') %>
+        <script src="/js/script.search.js"></script>
+    </body>
+</html>

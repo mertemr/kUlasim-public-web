@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="tr" data-bs-theme="dark">
+    <head>
+        <%- include('partials/head') %>
+        <link
+            rel="stylesheet"
+            href="https://unpkg.com/leaflet/dist/leaflet.css"
+        />
+        <link rel="stylesheet" href="/css/style.tramlines.css" />
+    </head>
+    <body>
+        <%- include('partials/sidebar') %>
+        <div class="content">
+            <div class="container pt-4" id="searchContainer">
+                <input
+                    class="form-control form-control-lg"
+                    type="text"
+                    id="tramIDOutput"
+                    placeholder="ID"
+                    disabled
+                    value="T1"
+                />
+                <select class="form-select form-select-lg" id="lineDirection">
+                    <option selected value="T1"></option>
+                    <option value="T2"></option>
+                    <option value="T3"></option>
+                    <option value="T4"></option>
+                </select>
+                <select class="form-select form-select-lg" id="direction">
+                    <option selected value="DEPARTURE">Gidiş</option>
+                    <option value="ARRIVAL">Dönüş</option>
+                </select>
+                <button class="btn btn-primary" id="searchButton">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+            <div class="container mt-4">
+                <div class="row" id="searchResults"></div>
+            </div>
+            <div id="map"></div>
+        </div>
+        <%- include('partials/leafletScripts') %> <%-
+        include('partials/scripts') %>
+        <script src="/js/global.js"></script>
+        <script src="/js/script.tramlines.js"></script>
+        <% if (locals?.lineNumber) { %>
+        <script>
+            $("#lineDirection").val("<%= locals.lineNumber %>").change();
+            updateLabels();
+            findTrams();
+        </script>
+        <% } %>
+    </body>
+</html>
