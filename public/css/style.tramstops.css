@@ -1,0 +1,22 @@
+#searchResults {
+    /* show items as grid */
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 1rem;
+    /* center items */
+}
+
+#searchResults > div.card {
+    width: 100%;
+    /* center items */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* add some padding */
+    padding: 1rem;
+    /* add some margin */
+    margin: 1rem;
+    /* add some border */
+    border: 1px solid #ccc;
+}
